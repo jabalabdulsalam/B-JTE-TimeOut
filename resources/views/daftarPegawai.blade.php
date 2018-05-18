@@ -7,6 +7,7 @@
             <div class="container-fluid text-center">
                 <h1>Daftar Pegawai</h1>
                 <div class="row">
+
                     <div class="col-md-12">
                         <h2 style="text-align: center">Daftar Pegawai</h2>
                         <table class="table" style="text-align: center">
@@ -75,4 +76,14 @@
                 </div>
 
 
+
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-12">
+
+                    </div>
+                </div>
 @endsection
