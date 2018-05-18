@@ -17,8 +17,21 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/beranda', 'HomeController@index')->name('beranda');
 
 Route::get('/masuk', function () {
     return view('masuk');
 });
+
+Route::get('/jadwal-kerja', function () {
+    return view('jadwalKerja');
+});
+
+Route::get('/daftar-pegawai', function () {
+    return view('daftarPegawai');
+});
+
+Route::get('/profile', function () {
+    return view('profile');
+});
+

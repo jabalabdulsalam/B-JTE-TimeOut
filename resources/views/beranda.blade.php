@@ -8,6 +8,7 @@
             <h1>Beranda</h1>
                 <div class="row">
 
+
                 </div>
 
 
@@ -17,3 +18,9 @@
                     </div>
                 </div>
 @endsection
+
+                </div>
+
+
+@endsection
+
