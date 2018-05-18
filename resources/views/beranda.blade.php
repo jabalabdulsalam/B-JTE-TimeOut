@@ -8,7 +8,19 @@
             <h1>Beranda</h1>
                 <div class="row">
 
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-12">
+
+                    </div>
+                </div>
+@endsection
+
                 </div>
 
 
 @endsection
+
