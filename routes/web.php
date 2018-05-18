@@ -17,21 +17,21 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/beranda', 'HomeController@index')->name('beranda');
 
 Route::get('/masuk', function () {
     return view('masuk');
 });
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin']], function(){
-    Route::get('/', function(){
-        $data['users'] = \App\User::whereDoesntHave('roles')->get();
-        return view('admin', $data);
-    });
+Route::get('/jadwal-kerja', function () {
+    return view('jadwalKerja');
 });
-// Route untuk user yang member
-Route::group(['prefix' => 'member', 'middleware' => ['auth','role:member']], function(){
-    Route::get('/', function(){
-        return view('member');
-    });
+
+Route::get('/daftar-pegawai', function () {
+    return view('daftarPegawai');
 });
+
+Route::get('/profile', function () {
+    return view('profile');
+});
+
