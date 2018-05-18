@@ -1,4 +1,3 @@
-
 @extends('template.MainTemplate')
 
 @section('content')
@@ -12,9 +11,4 @@
                 </div>
 
 
-                <div class="row">
-                    <div class="col-sm-12">
-
-                    </div>
-                </div>
 @endsection
