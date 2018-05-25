@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Login TimeOut</title>
+    <title>TimeOut</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -28,7 +28,6 @@
     <!--===============================================================================================-->
 </head>
 <body>
-
 <div class="limiter">
     <div class="container-login100" style="background-image: url('images/bg-01.jpg');">
         <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
@@ -36,40 +35,76 @@
 					<span class="login100-form-title p-b-49">
 						Login
 					</span>
+                <form role="form" method="POST" action="{{ url('/login') }}">
+                    {!! csrf_field() !!}
 
-                <div class="wrap-input100 validate-input m-b-23" data-validate = "email is required">
-                    <span class="label-input100">Email</span>
-                    <input class="input100" type="text" name="username" placeholder="Masukkan email">
-                    <span class="focus-input100" data-symbol="&#9993;"></span>
-                </div>
+                        <div class="wrap-input100 validate-input m-b-23">
+                            <span for="email" class="label-input100">{{ __('Email') }}</span>
+                            <span class="focus-input100" data-symbol="&#9993;"></span>
 
-                <div class="wrap-input100 validate-input" data-validate="Password is required">
-                    <span class="label-input100">Password</span>
-                    <input class="input100" type="password" name="pass" placeholder="Masukkan password">
-                    <span class="focus-input100" data-symbol="&#xf190;"></span>
-                </div>
+                                <input
+                                        id="email"
+                                        type="email"
+                                        class="input100"
+                                        class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
+                                        name="email"
+                                        placeholder="Masukkan email"
+                                        value="{{ old('email') }}"
+                                        required autofocus
+                                >
 
-                <div class="text-right p-t-8 p-b-31">
-                    <a href="#">
-                        Lupa password?
-                    </a>
-                </div>
+                                @if ($errors->has('email'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                        </div>
 
-                <div class="container-login100-form-btn">
-                    <div class="wrap-login100-form-btn">
-                        <div class="login100-form-bgbtn"></div>
-                        <button class="login100-form-btn">
-                            Login
-                        </button>
-                    </div>
-                </div>
-                <div class="flex-col-c p-t-50">
+                        <div class="wrap-input100 validate-input m-b-23">
+                            <span for="password" class="label-input100">{{ __('Password') }}</span>
+                            <span class="focus-input100" data-symbol="&#xf190;"></span>
+
+                                <input
+                                        id="password"
+                                        type="password"
+                                        class="input100"
+                                        class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
+                                        name="password"
+                                        placeholder="Masukkan password"
+                                        required
+                                >
+
+                                @if ($errors->has('password'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                        </div>
+
+                        <div class="container-login100-form-btn">
+                            <div class="wrap-login100-form-btn">
+                                <div class="login100-form-bgbtn"></div>
+                                <button type="submit" class="login100-form-btn">
+                                    {{ __('Login') }}
+                                </button>
+                            </div>
+                        </div>
+                   <div>
+
+                       <a class="btn btn-link txt2 pull-right" href="{{ route('password.request') }}">
+                           {{ __('Lupa password?') }}
+                       </a>
+                   </div>
+
+                    <div class="flex-col-c p-t-50">
 						<span class="txt1 p-b-17">
                             Belum punya akun? &nbsp;
                             <a href="/register" class="txt2">Register</a>
 						</span>
+                    </div>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 </div>

@@ -147,7 +147,6 @@ iframe {
   font-size: 14px;
   line-height: 1.5;
   color: #333333;
-  text-transform: uppercase;
 }
 
 .bg1 {background-color: #3b5998}
@@ -172,7 +171,7 @@ iframe {
   display: -ms-flexbox;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   padding: 15px;
   background-repeat: no-repeat;

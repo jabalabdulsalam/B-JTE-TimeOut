@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Register TimeOut</title>
+        <title>TimeOut</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--===============================================================================================-->
@@ -30,25 +30,26 @@
 
     <body>
     <div class="limiter">
-        <div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+        <div class="container-login100" style="background-image: url('images/bg-01.jpg')">
             <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-                <form class="login100-form validate-form">
+                <form class="login100-form validate-form" method="POST" action="{{ url('/register') }}">
+                    {{ csrf_field() }}
+
 					<span class="login100-form-title p-b-49">
 						Register
 					</span>
-                    <form role="form" method="POST" action="{{ url('/register') }}">
-                        {!! csrf_field() !!}
+
 
                         <div class="wrap-input100 validate-input m-b-23" >
                             <span class="label-input100">Nama</span>
                             <span class="focus-input100" data-symbol="&#xf206;"></span>
-                            <div class="col-lg-6">
 
                                 <input
                                         type="text"
-                                        class="input100{{ $errors->has('name') ? ' is-invalid' : '' }}"
+                                        class="input100"
+                                        class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
                                         name="name"
-                                        placeholder="Nama"
+                                        placeholder="Masukkan nama"
                                         value="{{ old('name') }}"
                                         required
                                 >
@@ -57,20 +58,18 @@
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </div>
                                 @endif
-
-                            </div>
                         </div>
 
                         <div class="wrap-input100 validate-input m-b-23">
                             <span class="label-input100">Email</span>
                             <span class="focus-input100" data-symbol="&#9993;"></span>
-                            <div class="col-lg-6">
 
                                 <input
                                         type="email"
-                                        class="input100{{ $errors->has('email') ? ' is-invalid' : '' }}"
+                                        class="input100"
+                                        class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
                                         name="email"
-                                        placeholder="Email"
+                                        placeholder="Masukkan email"
                                         value="{{ old('email') }}"
                                         required
                                 >
@@ -80,19 +79,20 @@
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </div>
                                 @endif
-                            </div>
+
                         </div>
+
 
                         <div class="wrap-input100 validate-input m-b-23">
                             <span class="label-input100">Password</span>
                             <span class="focus-input100" data-symbol="&#xf190;"></span>
-                            <div class="col-lg-6">
 
                                 <input
                                         type="password"
-                                        class="input100{{ $errors->has('password') ? ' is-invalid' : '' }}"
+                                        class="input100"
+                                        class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
                                         name="password"
-                                        placeholder="Password"
+                                        placeholder="Masukkan password"
                                         required
                                 >
                                 @if ($errors->has('password'))
@@ -100,19 +100,19 @@
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </div>
                                 @endif
-                            </div>
+
                         </div>
 
                         <div class="wrap-input100 validate-input m-b-23">
                             <span class="label-input100">Confirm password</span>
                             <span class="focus-input100" data-symbol="&#xf190;"></span>
-                            <div class="col-lg-6">
 
                                 <input
                                         type="password"
-                                        class="input100{{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}"
+                                        class="input100"
+                                        class="form-control{{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}"
                                         name="password_confirmation"
-                                        placeholder="Confirm Pass."
+                                        placeholder="Confirm password"
                                         required
                                 >
                                 @if ($errors->has('password_confirmation'))
@@ -120,14 +120,14 @@
                                         <strong>{{ $errors->first('password_confirmation') }}</strong>
                                     </div>
                                 @endif
-                            </div>
+
                         </div>
 
                         <div class="container-login100-form-btn">
                             <div class="wrap-login100-form-btn">
                                 <div class="login100-form-bgbtn"></div>
-                                <button class="login100-form-btn">
-                                    Register
+                                <button type="submit" class="login100-form-btn">
+                                    {{ __('register') }}
                                 </button>
                             </div>
                         </div>
@@ -138,8 +138,7 @@
 						</span>
                         </div>
                     </form>
-                </div>
-            </div>
+        </div>
         </div>
     </div>
 </div>
